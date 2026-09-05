@@ -194,7 +194,7 @@ dependencies {
     // (no official Maven artifact; the JitPack coordinate doesn't resolve). Lives in :app because a
     // library module can't consume a local .aar — KokoroSynth sits in :app and bridges into :core's
     // VoiceGuide via an interface. Native .so are arm64-only in the package (see packaging{}).
-    implementation(files("libs/sherpa-onnx-1.13.3.aar"))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar", "*.jar"))))
     // Extracts the Kokoro model's .tar.bz2 at download time (Android has no built-in bzip2/tar).
     implementation("org.apache.commons:commons-compress:1.27.1")
 
